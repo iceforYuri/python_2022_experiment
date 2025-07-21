@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>租房数据雷达图</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 引入样式文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 引入Chart.js -->
+</head>
+<body>
+    <div class="container">
+        <h1>租房数据雷达图</h1>
+        <canvas id="rentingRadarChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('rentingRadarChart').getContext('2d');
+
+        const data = {
+            labels: ['面积', '房间数', '价格', '单价', '类型'],
+            datasets: [{
+                label: '租房数据',
+                data: [75.39, 2, 6600, 87.54, 1], // 示例数据，需根据实际数据进行调整
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const config = {
+            type: 'radar',
+            data: data,
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const rentingRadarChart = new Chart(ctx, config);
+    </script>
+</body>
+</html>
